@@ -1,0 +1,89 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5; /* Light neutral tone */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Card Container */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 28px;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* File Input */
+input[type="file"] {
+  padding: 14px;
+  border: 2px dashed #ccc;
+  background: #fafafa;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type="file"]:hover {
+  background: #f0f0f0;
+}
+
+/* Submit Button */
+button {
+  padding: 14px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Transcription Result */
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 30px 20px;
+  }
+}

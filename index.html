@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Recognition System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Speech Recognition System</h1>
+    <form id="uploadForm">
+      <input type="file" name="audioFile" accept="audio/*" required />
+      <button type="submit">Transcribe</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      fetch('/transcribe', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        const resultDiv = document.getElementById('result');
+        if (data.transcription) {
+          resultDiv.innerHTML = `<h3>Transcription:</h3><p>${data.transcription}</p>`;
+        } else {
+          resultDiv.innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
